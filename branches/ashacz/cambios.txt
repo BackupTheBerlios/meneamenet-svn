@@ -1,3 +1,14 @@
 Cambios realizados en el codigo de meneame y su estado.
 
-1º Añadido el archivo robots.txt Fecha: 7/5/2006
+1º 7/5/2006 Añadido el archivo robots.txt 
+
+2º 8/5/2006 Añadida la etiqueta  <meta http-equiv="Cache-Control" content ="no-cache" />
+			para evitar que los navegadores almacenen en cache versiones antiguas de 
+			páginas de meneame
+			
+			Cambiada la etiqueta <style type="text/css" media="screen">@import "css/es/mnm10.css";</style>'
+			por <link href="/css/es/mnm10.css" rel="stylesheet" media="screen" type="text/css" />
+			Vincular una hoja de estilos es un metodo mas estandar que importarla.
+			Solo los navegadores modernos entienden @import, los antiguos la ignoran.
+			
+			Modificado el fichero www/libs/html1.php

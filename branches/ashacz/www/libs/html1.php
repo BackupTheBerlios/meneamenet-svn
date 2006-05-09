@@ -27,7 +27,9 @@ function do_header($title, $id='home') {
 	echo "<title>"._($title)." // men&eacute;ame</title>\n";
 	echo '<meta name="generator" content="meneame" />' . "\n";
 	echo '<meta name="keywords" content="'.$globals['tags'].'" />' . "\n";
-	echo '<style type="text/css" media="screen">@import "/css/es/mnm10.css";</style>' . "\n";
+	echo '<meta http-equiv="Cache-Control" content ="no-cache" />'. "\n";
+	echo '<link href="/css/es/mnm10.css" rel="stylesheet" media="screen" type="text/css" />' ."\n";;
+	//echo '<style type="text/css" media="screen">@import "css/es/mnm10.css";</style>' . "\n";
 	//echo '<style type="text/css" media="all">@import "./css/es/meneame.css";</style>' . "\n";
 	//echo '<style type="text/css" media="all">@import "./css/es/toolbar.css";</style>' . "\n";
 	echo '<link rel="alternate" type="application/rss+xml" title="'._('publicadas').'" href="http://'.get_server_name().'/rss2.php" />'."\n";
