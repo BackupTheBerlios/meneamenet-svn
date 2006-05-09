@@ -1,0 +1,1285 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2006-03-07 15:51+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: blogscloud.php:20 cloud.php:21 topstories.php:15 topusers.php:16
+msgid "última semana"
+msgstr ""
+
+#: blogscloud.php:20 cloud.php:21 topstories.php:15 topusers.php:16
+msgid "último mes"
+msgstr ""
+
+#: blogscloud.php:20 cloud.php:21 topstories.php:15 topusers.php:16
+msgid "último año"
+msgstr ""
+
+#: blogscloud.php:20 cloud.php:21 shakeit.php:49 shakeit.php:64 shakeit.php:76
+#: topstories.php:15 topusers.php:16 libs/html1.php:35 libs/html1.php:189
+msgid "todas"
+msgstr ""
+
+#: blogscloud.php:41
+msgid "nube de blogs"
+msgstr ""
+
+#: blogscloud.php:42 libs/html1.php:134
+msgid "blogs"
+msgstr ""
+
+#: checkfield.php:17
+msgid "nombre demasiado corto"
+msgstr ""
+
+#: checkfield.php:21
+msgid "caracteres inválidos"
+msgstr ""
+
+#: checkfield.php:25
+msgid "el usuario ya existe"
+msgstr ""
+
+#: checkfield.php:32
+msgid "dirección de correo no válida"
+msgstr ""
+
+#: checkfield.php:36
+msgid "ya existe otro usuario con esa dirección de correo"
+msgstr ""
+
+#: cloud.php:21
+msgid "48 horas"
+msgstr ""
+
+#: cloud.php:40
+msgid "nube de etiquetas"
+msgstr ""
+
+#: cloud.php:41 editlink.php:74 submit.php:169 libs/html1.php:132
+#: libs/link.php:253
+msgid "etiquetas"
+msgstr ""
+
+#: editlink.php:17 editlink.php:18 editlink.php:53
+msgid "editar noticia"
+msgstr ""
+
+#: editlink.php:28
+msgid "noticia no modificable"
+msgstr ""
+
+#: editlink.php:36
+msgid "¿duh?"
+msgstr ""
+
+#: editlink.php:62 submit.php:162 submit.php:230
+msgid "detalles de la noticia"
+msgstr ""
+
+#: editlink.php:65
+msgid "url de la noticia"
+msgstr ""
+
+#: editlink.php:66
+msgid "url de la noticia."
+msgstr ""
+
+#: editlink.php:70 submit.php:164
+msgid "título de la noticia"
+msgstr ""
+
+#: editlink.php:71 submit.php:165
+msgid "título de la noticia. máximo: 120 caracteres"
+msgstr ""
+
+#: editlink.php:75 submit.php:170
+msgid "pocas palabras, genéricas, cortas y separadas por \",\" (coma)"
+msgstr ""
+
+#: editlink.php:78 submit.php:173
+msgid "descripción de la noticia"
+msgstr ""
+
+#: editlink.php:79 submit.php:174
+msgid ""
+"describe la noticia con tus palabras. entre dos y cinco frases es "
+"suficiente. sé cuidadoso."
+msgstr ""
+
+#: editlink.php:81 submit.php:176 libs/html1.php:175 libs/link.php:255
+msgid "categoría"
+msgstr ""
+
+#: editlink.php:82 submit.php:177
+msgid "selecciona la categoría más apropiada"
+msgstr ""
+
+#: editlink.php:102
+msgid "guardar &#187;"
+msgstr ""
+
+#: editlink.php:121
+msgid "noticia actualizada"
+msgstr ""
+
+#: editlink.php:130
+msgid "&#171; modificar"
+msgstr ""
+
+#: editlink.php:131
+msgid "ir a la noticia"
+msgstr ""
+
+#: editlink.php:140 submit.php:301
+msgid "Clave incorrecta"
+msgstr ""
+
+#: editlink.php:144
+msgid "Tiempo excedido"
+msgstr ""
+
+#: editlink.php:149 submit.php:310
+msgid "Título o texto incompletos"
+msgstr ""
+
+#: editlink.php:153 submit.php:318
+msgid "No has puesto etiquetas"
+msgstr ""
+
+#: editlink.php:158 submit.php:324
+msgid "Por favor, no pongas URLs en el título, no ofrece información"
+msgstr ""
+
+#: editlink.php:163 submit.php:329
+msgid "Categoría no seleccionada"
+msgstr ""
+
+#: faq-es.php:5
+msgid "FAQ"
+msgstr ""
+
+#: faq-es.php:6
+msgid "qué es menéame"
+msgstr ""
+
+#: index.php:29 shakeit.php:22
+msgid "búsqueda de"
+msgstr ""
+
+#: index.php:30 shakeit.php:23 libs/html1.php:168
+msgid "búsqueda"
+msgstr ""
+
+#: index.php:32
+msgid "resultados de la búsqueda"
+msgstr ""
+
+#: index.php:36
+msgid "últimas publicadas"
+msgstr ""
+
+#: index.php:39
+msgid "últimas noticias"
+msgstr ""
+
+#: login.php:37 register.php:40
+msgid "¿Has olvidado la contraseña?"
+msgstr ""
+
+#: login.php:42 libs/html1.php:61
+msgid "login"
+msgstr ""
+
+#: login.php:49
+msgid "usuario inexistente, sin validar, o clave incorrecta"
+msgstr ""
+
+#: login.php:61 login.php:101 topusers.php:21 user.php:157
+msgid "usuario"
+msgstr ""
+
+#: login.php:63 profile.php:83 register.php:57
+msgid "clave"
+msgstr ""
+
+#: login.php:65
+msgid "recuérdame"
+msgstr ""
+
+#: login.php:78
+msgid "recuperación de contraseñas"
+msgstr ""
+
+#: login.php:82
+msgid "El código de seguridad no es correcto!"
+msgstr ""
+
+#: login.php:88
+msgid "el usuario no existe"
+msgstr ""
+
+#: login.php:92
+msgid "cuenta deshabilitada"
+msgstr ""
+
+#: login.php:103
+msgid "(recibirás un e-mail para cambiar la contraseña)"
+msgstr ""
+
+#: login.php:107
+msgid "recibir e-mail"
+msgstr ""
+
+#: menealo.php:15
+msgid "Falta el ID del artículo"
+msgstr ""
+
+#: menealo.php:19
+msgid "Falta el código de usuario"
+msgstr ""
+
+#: menealo.php:23
+msgid "Falta la clave de control"
+msgstr ""
+
+#: menealo.php:29
+msgid "Artículo inexistente"
+msgstr ""
+
+#: menealo.php:34 problem.php:33
+msgid "Los votos anónimos están temporalmente deshabilitados"
+msgstr ""
+
+#: menealo.php:42
+msgid "Demasiados votos anónimos para esta noticia, inténtelo más tarde"
+msgstr ""
+
+#: menealo.php:49 problem.php:37
+msgid "Usuario incorrecto"
+msgstr ""
+
+#: menealo.php:54
+msgid "clave de control incorrecta"
+msgstr ""
+
+#: menealo.php:63
+msgid "¡tranquilo cowboy!"
+msgstr ""
+
+#: menealo.php:67
+msgid "ya ha votado antes"
+msgstr ""
+
+#: problem.php:27
+msgid "Voto incorrecto"
+msgstr ""
+
+#: problem.php:42
+msgid "Clave de control incorrecta"
+msgstr ""
+
+#: problem.php:51
+msgid "Ya ha votado antes"
+msgstr ""
+
+#: problem.php:55
+msgid "Error insertando voto"
+msgstr ""
+
+#: problem.php:58
+msgid "Será tomado en cuenta, gracias"
+msgstr ""
+
+#: profile.php:48
+msgid "edición del perfil del usuario"
+msgstr ""
+
+#: profile.php:49 topusers.php:63 topusers.php:64 user.php:36
+#: libs/html1.php:135
+msgid "usuarios"
+msgstr ""
+
+#: profile.php:49 libs/link.php:259
+msgid "editar"
+msgstr ""
+
+#: profile.php:62
+msgid "modifica tu perfil"
+msgstr ""
+
+#: profile.php:68
+msgid "nombre real"
+msgstr ""
+
+#: profile.php:72
+msgid "correo electrónico"
+msgstr ""
+
+#: profile.php:76
+msgid "página web"
+msgstr ""
+
+#: profile.php:81
+msgid ""
+"Introduce la nueva clave para cambiarla -no se cambiará si la dejas en "
+"blanco-:"
+msgstr ""
+
+#: profile.php:86
+msgid "repite la clave"
+msgstr ""
+
+#: profile.php:91
+msgid "actualizar"
+msgstr ""
+
+#: profile.php:102 register.php:91
+msgid "El correo electrónico no es correcto"
+msgstr ""
+
+#: profile.php:111
+msgid "Las claves no son iguales, no se ha modificado"
+msgstr ""
+
+#: profile.php:115
+msgid "La clave se ha cambiado"
+msgstr ""
+
+#: profile.php:125
+msgid "Datos actualizados"
+msgstr ""
+
+#: register.php:13 register.php:14 register.php:44
+msgid "registro"
+msgstr ""
+
+#: register.php:45
+msgid "nombre de usuario"
+msgstr ""
+
+#: register.php:48 register.php:54
+msgid "verificar"
+msgstr ""
+
+#: register.php:52
+msgid ""
+"es importante que sea correcta, recibirás un correo para validar la cuenta"
+msgstr ""
+
+#: register.php:58
+msgid "al menos cinco caracteres"
+msgstr ""
+
+#: register.php:61
+msgid "verificación de clave"
+msgstr ""
+
+#: register.php:65
+msgid "crear usuario"
+msgstr ""
+
+#: register.php:79
+msgid "Nombre de usuario erróneo, debe ser de 3 o más caracteres alfanuméricos"
+msgstr ""
+
+#: register.php:83
+msgid "Nombre de usuario erróneo, caracteres no admitidos"
+msgstr ""
+
+#: register.php:87 register.php:179
+msgid "El usuario ya existe"
+msgstr ""
+
+#: register.php:95
+msgid "Ya existe otro usuario con esa dirección de correo"
+msgstr ""
+
+#: register.php:99
+msgid "Caracteres inválidos en la clave"
+msgstr ""
+
+#: register.php:103
+msgid "Clave demasiado corta, debe ser de 5 o más caracteres"
+msgstr ""
+
+#: register.php:107
+msgid "Las claves no coinciden"
+msgstr ""
+
+#: register.php:114
+msgid ""
+"Para registrar otro usuario desde la misma dirección debes esperar 48 horas."
+msgstr ""
+
+#: register.php:134
+msgid "continuar"
+msgstr ""
+
+#: register.php:147
+msgid "El código de seguridad no es correcto."
+msgstr ""
+
+#: register.php:163
+msgid "registro de usuario"
+msgstr ""
+
+#: register.php:168 register.php:176
+msgid "Error insertando usuario en la base de datos"
+msgstr ""
+
+#: rss2.php:33
+msgid "Menéame: más votadas en"
+msgstr ""
+
+#: rss2.php:63
+msgid "Menéame: publicadas"
+msgstr ""
+
+#: rss2.php:66
+msgid "Menéame: en cola"
+msgstr ""
+
+#: rss2.php:72
+msgid "Menéame: todas"
+msgstr ""
+
+#: rss2.php:92 api/show_banner_ben.php:53 api/show_banner.php:70
+#: api/show_banner.php:78
+msgid "Menéame"
+msgstr ""
+
+#: rss2.php:156
+msgid "Sitio colaborativo de publicación y comunicación entre blogs"
+msgstr ""
+
+#: shakeit.php:23 shakeit.php:29
+msgid "noticias en la cola"
+msgstr ""
+
+#: shakeit.php:25 shakeit.php:128
+msgid "búsqueda en pendientes"
+msgstr ""
+
+#: shakeit.php:28 shakeit.php:31
+msgid "noticias pendientes"
+msgstr ""
+
+#: shakeit.php:51 shakeit.php:65 shakeit.php:78
+msgid "recomendadas"
+msgstr ""
+
+#: shakeit.php:52 shakeit.php:66 shakeit.php:79
+msgid "descartadas"
+msgstr ""
+
+#: shakeit.php:114
+msgid "¡Tu voto es importante!"
+msgstr ""
+
+#: shakeit.php:116
+msgid "Usa las categorías para conseguir que la lista sea más corta. "
+msgstr ""
+
+#: shakeit.php:116
+msgid " Así no te perderás entradas interesantes de tus temas preferidos."
+msgstr ""
+
+#: shakeit.php:133 libs/html1.php:66
+msgid "buscar"
+msgstr ""
+
+#: shakeit.php:138 libs/html1.php:125
+msgid "reportar un bug"
+msgstr ""
+
+#: sneaker.php:88
+msgid "chat"
+msgstr ""
+
+#: sneaker.php:186 libs/link.php:344
+msgid "irrelevante"
+msgstr ""
+
+#: sneaker.php:189 libs/link.php:345
+msgid "antigua"
+msgstr ""
+
+#: sneaker.php:192 libs/link.php:346
+msgid "spam"
+msgstr ""
+
+#: sneaker.php:195 libs/link.php:347
+msgid "duplicada"
+msgstr ""
+
+#: sneaker.php:198 libs/link.php:348
+msgid "provocación"
+msgstr ""
+
+#: sneaker.php:201 libs/link.php:349
+msgid "errónea"
+msgstr ""
+
+#: sneaker.php:212 sneak.php:215 sneak.php:229 sneak.php:332
+msgid "publicada"
+msgstr ""
+
+#: sneaker.php:215
+msgid "pendiente"
+msgstr ""
+
+#: sneaker.php:218 sneak.php:231
+msgid "descartada"
+msgstr ""
+
+#: sneak.php:34 sneak.php:321 libs/html1.php:117
+msgid "fisgón"
+msgstr ""
+
+#: sneak.php:155
+msgid "Fisgón: ¿desea continuar conectado?"
+msgstr ""
+
+#: sneak.php:195 sneak.php:333 sneak.php:338
+msgid "mensaje"
+msgstr ""
+
+#: sneak.php:207 sneak.php:328
+msgid "voto"
+msgstr ""
+
+#: sneak.php:209 sneak.php:329
+msgid "problema"
+msgstr ""
+
+#: sneak.php:211 sneak.php:330
+msgid "comentario"
+msgstr ""
+
+#: sneak.php:213 sneak.php:331
+msgid "nueva"
+msgstr ""
+
+#: sneak.php:241
+msgid "tiene deshabilitado los comentarios"
+msgstr ""
+
+#: sneak.php:245
+msgid "mensaje demasiado corto"
+msgstr ""
+
+#: sneak.php:249
+msgid "sólo se puede enviar un mensaje cada"
+msgstr ""
+
+#: sneak.php:249
+msgid "segundos"
+msgstr ""
+
+#: sneak.php:328
+msgid "voto: "
+msgstr ""
+
+#: sneak.php:329
+msgid "problema: "
+msgstr ""
+
+#: sneak.php:330
+msgid "comentario: "
+msgstr ""
+
+#: sneak.php:331
+msgid "nueva: "
+msgstr ""
+
+#: sneak.php:332
+msgid "publicada: "
+msgstr ""
+
+#: sneak.php:333
+msgid "mensaje: "
+msgstr ""
+
+#: sneak.php:334
+msgid "fisgones"
+msgstr ""
+
+#: sneak.php:338
+msgid "enviar"
+msgstr ""
+
+#: sneak.php:343 libs/utils.php:44
+msgid "hora"
+msgstr ""
+
+#: sneak.php:344
+msgid "acción"
+msgstr ""
+
+#: sneak.php:345 libs/link.php:302 libs/link.php:304
+msgid "meneos"
+msgstr ""
+
+#: sneak.php:346
+msgid "noticia"
+msgstr ""
+
+#: sneak.php:347
+msgid "quién/qué"
+msgstr ""
+
+#: sneak.php:348
+msgid "estado"
+msgstr ""
+
+#: story.php:37 story.php:71 topusers.php:21 user.php:172 libs/link.php:243
+msgid "comentarios"
+msgstr ""
+
+#: story.php:58
+msgid "comentarios cerrados"
+msgstr ""
+
+#: story.php:68
+msgid "No tienes el mínimo karma requerido"
+msgstr ""
+
+#: story.php:68
+msgid "para comentar"
+msgstr ""
+
+#: story.php:71
+msgid "Autentifícate si deseas escribir"
+msgstr ""
+
+#: story.php:71
+msgid "O regístrate"
+msgstr ""
+
+#: story.php:89
+msgid "envía un comentario"
+msgstr ""
+
+#: story.php:91
+msgid ""
+"Sé respetuoso, no insultes, exprésate con el voto. Si la noticia o un "
+"comentario te parece fuera de lugar, explícalo de forma breve y objetiva. Se "
+"agradece el buen humor."
+msgstr ""
+
+#: story.php:92
+msgid "texto del comentario / no se admiten etiquetas HTML"
+msgstr ""
+
+#: story.php:97
+msgid "enviar el comentario"
+msgstr ""
+
+#: submit.php:17 submit.php:59 submit.php:339
+msgid "enviar noticia"
+msgstr ""
+
+#: submit.php:45
+msgid "dirección de la noticia"
+msgstr ""
+
+#: submit.php:47
+msgid "url"
+msgstr ""
+
+#: submit.php:52 submit.php:192
+msgid "continuar &#187;"
+msgstr ""
+
+#: submit.php:59
+msgid "paso 1: la dirección"
+msgstr ""
+
+#: submit.php:61
+msgid "envío de una nueva noticia: paso 1 de 3"
+msgstr ""
+
+#: submit.php:63
+msgid "por favor, respeta estas las instrucciones para mejorar la calidad:"
+msgstr ""
+
+#: submit.php:65
+msgid "Contenido interesante"
+msgstr ""
+
+#: submit.php:65
+msgid "¿Está relacionado con la tecnología, Internet, o la cultura digital?"
+msgstr ""
+
+#: submit.php:66
+msgid "Enlaza la fuente original"
+msgstr ""
+
+#: submit.php:66
+msgid "No hagas perder tiempo a los lectores."
+msgstr ""
+
+#: submit.php:67
+msgid "Busca antes"
+msgstr ""
+
+#: submit.php:67
+msgid "Evita duplicar noticias."
+msgstr ""
+
+#: submit.php:68
+msgid "Sé descriptivo"
+msgstr ""
+
+#: submit.php:68
+msgid "Explica la noticia lo mejor que puedas y porqué es interesante"
+msgstr ""
+
+#: submit.php:69
+msgid "Repetimos, por las dudas... ¡enlaza la fuente original!"
+msgstr ""
+
+#: submit.php:69
+msgid ""
+"No hagas perder tiempo a los lectores, no enlaces a un blog que no ofrece "
+"información ni comentarios adicionales."
+msgstr ""
+
+#: submit.php:85 submit.php:224
+msgid "enviar noticia "
+msgstr ""
+
+#: submit.php:85
+msgid " paso 2: detalles"
+msgstr ""
+
+#: submit.php:88
+msgid "url no válido"
+msgstr ""
+
+#: submit.php:89
+msgid "prueba con otra dirección"
+msgstr ""
+
+#: submit.php:98
+msgid "ya has enviado un enlace al mismo sitio hace poco tiempo"
+msgstr ""
+
+#: submit.php:99
+msgid "debes esperar"
+msgstr ""
+
+#: submit.php:99
+msgid ""
+" horas entre cada envío al mismo sitio. Es para evitar \"spams\" y "
+"\"autobombo\""
+msgstr ""
+
+#: submit.php:100
+msgid "lee el FAQ"
+msgstr ""
+
+#: submit.php:117
+msgid "no tienes el mínimo de votos necesarios para enviar una nueva historia"
+msgstr ""
+
+#: submit.php:118
+msgid "necesitas votar como mínimo a"
+msgstr ""
+
+#: submit.php:118 topstories.php:33 topusers.php:21
+msgid "noticias"
+msgstr ""
+
+#: submit.php:119
+msgid "haz clic aquí para ir a votar"
+msgstr ""
+
+#: submit.php:127
+msgid "noticia repetida!"
+msgstr ""
+
+#: submit.php:128
+msgid "lo sentimos"
+msgstr ""
+
+#: submit.php:129
+msgid "haz clic aquí para votar o comentar la noticia que enviaron antes"
+msgstr ""
+
+#: submit.php:132 submit.php:191 submit.php:212 submit.php:244
+msgid "&#171; retroceder"
+msgstr ""
+
+#: submit.php:141
+msgid "envío de una nueva noticia: paso 2 de 3"
+msgstr ""
+
+#: submit.php:152
+msgid "info de la noticia"
+msgstr ""
+
+#: submit.php:153
+msgid "título de la página"
+msgstr ""
+
+#: submit.php:156
+msgid "parece ser un blog"
+msgstr ""
+
+#: submit.php:188
+msgid "trackback"
+msgstr ""
+
+#: submit.php:189
+msgid ""
+"puedes agregar o cambiar el trackback si ha sido detectado automáticamente"
+msgstr ""
+
+#: submit.php:224
+msgid " paso 3: control final"
+msgstr ""
+
+#: submit.php:227
+msgid "envío de una nueva noticia: paso 3 de 3"
+msgstr ""
+
+#: submit.php:232
+msgid "ATENCIÓN: esto es sólo es una muestra!"
+msgstr ""
+
+#: submit.php:232
+msgid "Ahora puedes 1) "
+msgstr ""
+
+#: submit.php:232
+msgid "retroceder"
+msgstr ""
+
+#: submit.php:232
+msgid " o 2)  "
+msgstr ""
+
+#: submit.php:232
+msgid "enviar a la cola y finalizar"
+msgstr ""
+
+#: submit.php:232
+msgid ""
+". Cualquier otro clic convertirá tu noticia en comida para <del>gatos</del> "
+"elefantes (o no)."
+msgstr ""
+
+#: submit.php:245
+msgid "enviar a la cola y finalizar &#187;"
+msgstr ""
+
+#: submit.php:306
+msgid "La historia ya está en cola"
+msgstr ""
+
+#: submit.php:314
+msgid "Título o texto demasiado largos"
+msgstr ""
+
+#: submit.php:339 submit.php:341
+msgid "ooops!"
+msgstr ""
+
+#: topstories.php:15 topusers.php:16
+msgid "24 horas"
+msgstr ""
+
+#: topstories.php:32
+msgid "más votadas"
+msgstr ""
+
+#: topstories.php:33 topusers.php:64 topusers.php:65
+msgid "estadísticas"
+msgstr ""
+
+#: topstories.php:35
+msgid "noticias más votadas"
+msgstr ""
+
+#: topstories.php:91
+msgid "suscripciones a las más meneadas"
+msgstr ""
+
+#: topusers.php:21 user.php:171 user.php:206
+msgid "noticias publicadas"
+msgstr ""
+
+#: topusers.php:21
+msgid "votos totales"
+msgstr ""
+
+#: topusers.php:21 user.php:174
+msgid "votos de publicadas"
+msgstr ""
+
+#: user.php:35
+msgid "perfil de usuario"
+msgstr ""
+
+#: user.php:53 user.php:64 user.php:75 user.php:86 user.php:97 user.php:108
+#: user.php:120
+msgid "datos personales"
+msgstr ""
+
+#: user.php:54 user.php:65 user.php:76 user.php:87 user.php:98 user.php:109
+#: user.php:121
+msgid "enviadas"
+msgstr ""
+
+#: user.php:55 user.php:66 user.php:77 user.php:88 user.php:99 user.php:110
+#: user.php:122 libs/html1.php:33 libs/html1.php:181
+msgid "publicadas"
+msgstr ""
+
+#: user.php:56 user.php:67 user.php:78 user.php:89 user.php:100 user.php:111
+#: user.php:123
+msgid "comentadas"
+msgstr ""
+
+#: user.php:57 user.php:68 user.php:79 user.php:90 user.php:101 user.php:112
+#: user.php:124
+msgid "votadas"
+msgstr ""
+
+#: user.php:58 user.php:69 user.php:80 user.php:91 user.php:102 user.php:113
+#: user.php:125 user.php:258
+msgid "autores preferidos"
+msgstr ""
+
+#: user.php:59 user.php:70 user.php:81 user.php:92 user.php:103 user.php:114
+#: user.php:126
+msgid "votado por"
+msgstr ""
+
+#: user.php:148
+msgid "información personal"
+msgstr ""
+
+#: user.php:150
+msgid "modificar"
+msgstr ""
+
+#: user.php:159
+msgid "nombre"
+msgstr ""
+
+#: user.php:161
+msgid "sitio web"
+msgstr ""
+
+#: user.php:162
+msgid "desde"
+msgstr ""
+
+#: user.php:164
+msgid "karma"
+msgstr ""
+
+#: user.php:168
+msgid "estadísticas de meneos"
+msgstr ""
+
+#: user.php:170 user.php:186
+msgid "noticias enviadas"
+msgstr ""
+
+#: user.php:173
+msgid "número de votos"
+msgstr ""
+
+#: user.php:224
+msgid "noticias votadas"
+msgstr ""
+
+#: user.php:242
+msgid "noticias comentadas"
+msgstr ""
+
+#: user.php:280
+msgid "los que votan"
+msgstr ""
+
+#: libs/ads-credits-functions.php:70
+msgid "información legal y condiciones de uso"
+msgstr ""
+
+#: libs/ads-credits-functions.php:74
+msgid "quiénes somos"
+msgstr ""
+
+#: libs/ads-credits-functions.php:76
+msgid "wiki"
+msgstr ""
+
+#: libs/ads-credits-functions.php:77
+msgid "código: "
+msgstr ""
+
+#: libs/ads-credits-functions.php:77
+msgid "licencia"
+msgstr ""
+
+#: libs/ads-credits-functions.php:77
+msgid "descargar"
+msgstr ""
+
+#: libs/ads-credits-functions.php:78
+msgid "licencia de los gráficos"
+msgstr ""
+
+#: libs/comment.php:65
+msgid "escrito por"
+msgstr ""
+
+#: libs/comment.php:65 libs/link.php:227
+msgid "hace"
+msgstr ""
+
+#: libs/html1.php:34
+msgid "pendientes"
+msgstr ""
+
+#: libs/html1.php:54
+msgid "acerca de menéame"
+msgstr ""
+
+#: libs/html1.php:57
+msgid "cerrar sesión"
+msgstr ""
+
+#: libs/html1.php:58
+msgid "perfil de"
+msgstr ""
+
+#: libs/html1.php:60
+msgid "registrarse"
+msgstr ""
+
+#: libs/html1.php:71
+msgid "buscar..."
+msgstr ""
+
+#: libs/html1.php:101
+msgid "menéame"
+msgstr ""
+
+#: libs/html1.php:102
+msgid "es un sistema de promoción colaborativa de blogs..."
+msgstr ""
+
+#: libs/html1.php:102
+msgid "leer más"
+msgstr ""
+
+#: libs/html1.php:109
+msgid "menear pendientes"
+msgstr ""
+
+#: libs/html1.php:111
+msgid "menear pendientes de la categoría"
+msgstr ""
+
+#: libs/html1.php:116
+msgid "enviar una historia"
+msgstr ""
+
+#: libs/html1.php:133
+msgid "más meneadas"
+msgstr ""
+
+#: libs/html1.php:163
+msgid "suscripciones"
+msgstr ""
+
+#: libs/html1.php:185
+msgid "en cola"
+msgstr ""
+
+#: libs/html1.php:230 libs/html1.php:233
+msgid "anterior"
+msgstr ""
+
+#: libs/html1.php:238 libs/html1.php:245 libs/html1.php:251
+msgid "ir a página"
+msgstr ""
+
+#: libs/html1.php:255 libs/html1.php:257
+msgid "siguiente"
+msgstr ""
+
+#: libs/html1.php:268
+msgid "URI para trackbacks"
+msgstr ""
+
+#: libs/html1.php:283
+msgid "(sin trackbacks)"
+msgstr ""
+
+#: libs/html1.php:327
+msgid "_todas"
+msgstr ""
+
+#: libs/link.php:227
+msgid "enviado por"
+msgstr ""
+
+#: libs/link.php:229
+msgid "publicado hace"
+msgstr ""
+
+#: libs/link.php:244
+msgid "sin comentarios"
+msgstr ""
+
+#: libs/link.php:253
+msgid "nube"
+msgstr ""
+
+#: libs/link.php:255
+msgid "en"
+msgstr ""
+
+#: libs/link.php:273
+msgid "votos negativos"
+msgstr ""
+
+#: libs/link.php:274
+msgid "votos usuarios"
+msgstr ""
+
+#: libs/link.php:275
+msgid "votos anónimos"
+msgstr ""
+
+#: libs/link.php:309
+msgid "cerrado"
+msgstr ""
+
+#: libs/link.php:315
+msgid "vota si te agrada"
+msgstr ""
+
+#: libs/link.php:315
+msgid "menéalo"
+msgstr ""
+
+#: libs/link.php:317
+msgid "&#161;chachi!"
+msgstr ""
+
+#: libs/mail.php:19
+msgid "Recuperación o verificación de la contraseña de "
+msgstr ""
+
+#: libs/mail.php:20
+msgid ""
+": para poder acceder sin la clave, conéctate a la siguiente dirección en "
+"menos de dos horas:"
+msgstr ""
+
+#: libs/mail.php:21
+msgid "Pasado este tiempo puedes volver a solicitar acceso en: "
+msgstr ""
+
+#: libs/mail.php:22
+msgid "Una vez en tu perfil, puedes cambiar la clave de acceso."
+msgstr ""
+
+#: libs/mail.php:23
+msgid "Este mensaje ha sido enviado a solicitud de la dirección: "
+msgstr ""
+
+#: libs/mail.php:24
+msgid "el equipo de menéame"
+msgstr ""
+
+#: libs/mail.php:29
+msgid ""
+"Correo enviado, mira tu buzón, allí están las instrucciones. Mira también en "
+"la carpeta de spam."
+msgstr ""
+
+#: libs/ts.php:66
+msgid "introduce el código de la imagen:"
+msgstr ""
+
+#: libs/utils.php:40
+msgid "días"
+msgstr ""
+
+#: libs/utils.php:41
+msgid "día"
+msgstr ""
+
+#: libs/utils.php:43
+msgid "horas"
+msgstr ""
+
+#: libs/utils.php:46
+msgid "minutos"
+msgstr ""
+
+#: libs/utils.php:47
+msgid "minuto"
+msgstr ""
+
+#: libs/utils.php:49
+msgid "pocos segundos"
+msgstr ""
+
+#: api/check_url.php:38 api/show_banner_ben.php:38 api/show_banner_ben.php:44
+#: api/show_banner.php:39 api/show_banner.php:45 api/show_banner.php:60
+msgid "votos"
+msgstr ""
+
+#: api/check_url.php:40
+msgid "enviar esta historia"
+msgstr ""
+
+#: api/show_banner_ben.php:32 api/show_banner.php:33
+msgid "votos/hora"
+msgstr ""
+
+#: api/show_banner_ben.php:60
+msgid "A public disservice spam by Menéaaaaaame"
+msgstr ""
+
+#: api/show_banner_ben.php:67 api/show_banner.php:85
+msgid "Última publicada"
+msgstr ""
+
+#: api/show_banner_ben.php:71 api/show_banner.php:89
+msgid "Última enviada"
+msgstr ""
+
+#: api/show_banner_ben.php:75
+msgid "Más menéada recientemente"
+msgstr ""
+
+#: api/show_banner.php:93
+msgid "Menéandose"
+msgstr ""
+
+#: api/show_banner.php:97
+msgid "Última comentada"
+msgstr ""
