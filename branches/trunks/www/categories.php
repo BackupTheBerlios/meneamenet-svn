@@ -80,6 +80,13 @@ function show_category_form() {
 	echo '<input type="text" id="new_cat" name="new_cat" tabindex="1" size="25" /> ' . "\n";
 	echo '<label for="new_parent">' . _("hija de") . ':</label> ' . "\n";
 	echo '<input type="text" id="new_parent" name="new_parent" tabindex="1" size="1" value="0" />' . "\n";
+	echo '<label for="new_feed">' . _("url feed") . ':</label> ' . "\n";
+	echo '<input type="text" id="new_feed" name="new_feed" tabindex="1" size="25" /><br />' . "\n";
+
+	echo '<span class="genericformnote"><strong>pocas palabras, genéricas, cortas y separadas por "," (coma)</strong> Ejemplo: <em>web, programación, software libre</em></span><br />';
+	echo '<label for="new_tags">' . _("etiquetas por defecto") . ':</label> ' . "\n";
+	echo '<input type="text" id="new_tags" name="new_tags" tabindex="1" size="25" /></p>' . "\n";
+
 	echo '<p class="l-bottom" id="submit-p"><input type="submit" name="new" value="'._('enviar').'" class="genericsubmit"></p>';
 	echo "</form></fieldset></div></div>\n";
 }
@@ -87,7 +94,7 @@ function show_category_form() {
 function show_categories() {
 	global $db, $dblang;
 
-	$categories = $db->get_results("SELECT category_id, category_parent, category_name FROM categories WHERE category_lang='$dblang' ORDER BY category_parent ASC, category_id ASC");
+	$categories = $db->get_results("SELECT category_id, category_parent, category_name, category_feed FROM categories WHERE category_lang='$dblang' ORDER BY category_parent ASC, category_id ASC");
 
 	foreach ($categories as $category) {
 		if (isset($tree[$category->category_parent])) {
@@ -97,6 +104,7 @@ function show_categories() {
 		}
 		$category_data[$category->category_id]->category_parent = $category->category_parent;
 		$category_data[$category->category_id]->category_name = $category->category_name;
+		$category_data[$category->category_id]->category_feed = $category->category_feed;
 	}
 
 	$elems = split(",", $tree[0]);
@@ -111,7 +119,7 @@ function recursive($elems, $tree, $data, $level) {
 			for ($i=$level; $i>0; $i--)
 				echo '<blockquote>';
 
-			print_category($item, $data[$item]->category_parent, $data[$item]->category_name);
+			print_category($item, $data[$item]->category_parent, $data[$item]->category_name, $data[$item]->category_feed);
 
 			for ($i=$level; $i>0; $i--)
 				echo '</blockquote>';
@@ -120,7 +128,7 @@ function recursive($elems, $tree, $data, $level) {
 			for ($i=$level; $i>0; $i--)
 				echo '<blockquote>';
 
-			print_category($item, $data[$item]->category_parent, $data[$item]->category_name);
+			print_category($item, $data[$item]->category_parent, $data[$item]->category_name, $data[$item]->category_feed);
 
 			for ($i=$level; $i>0; $i--)
 				echo '</blockquote>';
@@ -128,7 +136,7 @@ function recursive($elems, $tree, $data, $level) {
 	}
 }
 
-function print_category ($id, $parent, $name) {
+function print_category ($id, $parent, $name, $feed) {
 	echo '<p class="l-top" id="l-top-edit[' . $id . ']">['. $id . 
 		'] <label for="edit[' . $id . ']" accesskey="' . $id . 
 		'" id="label1-edit[' . $id .']">' . _($name) .'</label> ';
@@ -139,6 +147,9 @@ function print_category ($id, $parent, $name) {
 
 	echo '<input type="hidden"  name="parent-edit[' . $id . ']" id="parent-edit[' 
 		. $id . ']" value="' . $parent . '" />';
+
+	echo '<input type="hidden"  name="feed-edit[' . $id . ']" id="feed-edit[' 
+		. $id . ']" value="' . $feed . '" />';
 
 	echo '<input type="submit" name="delete[' . $id . ']" id="delete[' . $id .
 		 ']" tabindex="1" value="' . _('eliminar') . ' " />' . "\n";
@@ -154,7 +165,7 @@ function change_categories() {
 	if (isset($_POST['delete'])) {
 		delete_category(array_keys($_POST['delete']));
 	} elseif (isset($_POST['new_cat'])) {
-		insert_category(trim($_POST['new_cat']), trim($_POST['new_parent']));
+		insert_category(trim($_POST['new_cat']), trim($_POST['new_parent']), trim($_POST['new_feed']), trim($_POST['new_tags']));
 	} else {
 		foreach (array_keys($_POST['new_cat-edit']) as $key) {
 			$category->id[$ncat]=trim($key);
@@ -170,9 +181,23 @@ function change_categories() {
 			$category->parent[$ncat]=intval($catparent);
 			$ncat++;
 		}
+		$ncat=0;
+		foreach ($_POST['new_feed-edit'] as $catfeed) {
+			$category->feed[$ncat]=htmlspecialchars(trim($catfeed));
+			$ncat++;
+		}
+		$ncat=0;
+		foreach ($_POST['new_tags-edit'] as $cattags) {
+			$category->tags[$ncat]=trim($cattags);
+			$ncat++;
+		}
 		if ( !(empty($_POST['new_cat-edit']) || empty($_POST['new-cat'])) ) {
 			$errors = 1;
 			echo '<p class="form-error">'._('No ha introducido ninguna categoría nueva').'</p>';
+		}
+		if ( empty($_POST['new_tags-edit']) ) {
+			$errors = 1;
+			echo '<p class="form-error">'._('No ha introducido ninguna etiqueta').'</p>';
 		}
 		if (!$errors) {
 			save_categories($category);
@@ -186,7 +211,8 @@ function save_categories($category) {
 
 	$ncat=0;
 	foreach ($category->id as $key) {
-		$db->query("update categories set category_name=\"" . $category->name[$ncat] . "\", category_parent=\"" . $category->parent[$ncat] . "\" where category_id=\"$key\" and category_lang=\"$dblang\"");
+		$db->query("update categories set category_name=\"" . $category->name[$ncat] . "\", category_parent=\"" . $category->parent[$ncat] . "\", category_feed=\"" . $category->feed[$ncat] . "\" where category_id=\"$key\" and category_lang=\"$dblang\"");
+		$db->query("update feed_data set tags='" . $category->tags[$ncat] . "\" where id=\"$key\"");
 		$ncat++;
 	}
 }
@@ -196,13 +222,21 @@ function delete_category($key) {
 
 	if (is_int($key[0]))
 		$db->query("delete from categories where category_id=\"" . $key[0] . "\" and category_lang=\"$dblang\"");
+		$db->query("delete from feed_data where id=\"" . $key[0] . "\"");
 }
 
-function insert_category($key, $parent) {
+function insert_category($key, $parent, $feed, $tags) {
 	global $db, $dblang;
 
 	$id=$db->get_results("select max(category_id) max from categories");
-	$db->query("insert into categories (category_id, category_parent, category_name, category_lang) values (" . (intval($id[0]->max) + 1) . ", $parent, \"$key\", \"$dblang\")");
+	if ($feed != "") {
+		$uri = parse_url($feed);
+		$link = $uri['scheme'] . "://" . $uri['host'];
+		$db->query("insert into feed_data (id, link, tags) values(" . (intval($id[0]->max) + 1) .", '". $link  ."', '" . $tags . "')");
+		$db->query("insert into categories (category_id, category_parent, category_name, category_feed, category_lang) values (" . (intval($id[0]->max) + 1) . ", $parent, \"$key\", \"$feed\", \"$dblang\")");
+	} else {
+		$db->query("insert into categories (category_id, category_parent, category_name, category_lang) values (" . (intval($id[0]->max) + 1) . ", $parent, \"$key\", \"$dblang\")");
+	}
 }
 
 ?>
