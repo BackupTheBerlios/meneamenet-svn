@@ -55,7 +55,7 @@ if($vote->exists()) {
 	error(_('Ya ha votado antes'));
 }
 
-$votes_freq = $db->get_var("select count(*) from votes where vote_type='links' and vote_user_id=$current_user->user_id and vote_date > subtime(now(), '0:0:30') and vote_ip = '".$globals['user_ip']."'"); 
+$votes_freq = $db->get_var("select count(*) from votes where vote_type='links' and vote_user_id=$current_user->user_id and vote_date > from_unixtime(unix_timestamp(now())-30) and vote_ip = '".$globals['user_ip']."'"); 
 if ($current_user->user_id > 0) $freq = 2;
 else $freq = 2;
 
