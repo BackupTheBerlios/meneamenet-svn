@@ -39,46 +39,47 @@ if(is_numeric($_REQUEST['id'])) {
 	// AdSense
 	do_banner_story();
 
-	echo '<div id="comments">';
-   	echo '<h2>'._('comentarios').'</h2>';
-
-	$comments = $db->get_col("SELECT comment_id FROM comments WHERE comment_link_id=$link->id ORDER BY comment_date");
-	if ($comments) {
-		echo '<ol id="comments-list">';
-		require_once(mnminclude.'comment.php');
-		$comment = new Comment;
-		foreach($comments as $comment_id) {
-			$comment->id=$comment_id;
-			$comment->read();
-			$comment->print_summary($link);
+	if ( $globals['comments'] ) {
+		echo '<div id="comments">';
+		echo '<h2>'._('comentarios').'</h2>';
+	
+		$comments = $db->get_col("SELECT comment_id FROM comments WHERE comment_link_id=$link->id ORDER BY comment_date");
+		if ($comments) {
+			echo '<ol id="comments-list">';
+			require_once(mnminclude.'comment.php');
+			$comment = new Comment;
+			foreach($comments as $comment_id) {
+				$comment->id=$comment_id;
+				$comment->read();
+				$comment->print_summary($link);
+			}
+			echo "</ol>\n";
 		}
-		echo "</ol>\n";
-	}
-
-
 	
-	if($link->date < time()-604800) { // older than 7 days
-		//echo '<br />'."\n";
-		echo '<div class="commentform" align="center" >'."\n";
-		echo _('comentarios cerrados')."\n";
-		echo '</div>'."\n";
-	} elseif ($current_user->authenticated && ($current_user->user_karma > $globals['min_karma_for_comments'] || $current_user->user_id == $link->author)) {
-		print_comment_form();
-	} else {
-		echo '<br/>'."\n";
-		echo '<div class="commentform" align="center" >'."\n";
-		if ($current_user->authenticated && $current_user->user_karma <= $globals['min_karma_for_comments']) 
-			echo _('No tienes el mínimo karma requerido')." (" . $globals['min_karma_for_comments'] . ") ". _('para comentar'). ": ".$current_user->user_karma ."\n";
-
-		else
-			echo '<a href="/login.php?return='.$_SERVER['REQUEST_URI'].'">'._('Autentifícate si deseas escribir').'</a> '._('comentarios').'. '._('O regístrate'). ' <a href="/register.php">aquí</a>.'."\n";
-		echo '</div>'."\n";
-	}
-
-	echo '</div>' . "\n";
 	
+		
+		if($link->date < time()-604800) { // older than 7 days
+			//echo '<br />'."\n";
+			echo '<div class="commentform" align="center" >'."\n";
+			echo _('comentarios cerrados')."\n";
+			echo '</div>'."\n";
+		} elseif ($current_user->authenticated && ($current_user->user_karma > $globals['min_karma_for_comments'] || $current_user->user_id == $link->author)) {
+			print_comment_form();
+		} else {
+			echo '<br/>'."\n";
+			echo '<div class="commentform" align="center" >'."\n";
+			if ($current_user->authenticated && $current_user->user_karma <= $globals['min_karma_for_comments']) 
+				echo _('No tienes el mínimo karma requerido')." (" . $globals['min_karma_for_comments'] . ") ". _('para comentar'). ": ".$current_user->user_karma ."\n";
+	
+			else
+				echo '<a href="/login.php?return='.$_SERVER['REQUEST_URI'].'">'._('Autentifícate si deseas escribir').'</a> '._('comentarios').'. '._('O regístrate'). ' <a href="/register.php">aquí</a>.'."\n";
+			echo '</div>'."\n";
+		}
+	
+		echo '</div>' . "\n";
+	}
 	echo '<div class="air-with-footer">'."\n";
-
+	
 	// Show voters
 	echo '<div id="voters">';
 	echo '<h2>'._('¿Quién ha meneado esto?').'</h2>';
@@ -87,7 +88,7 @@ if(is_numeric($_REQUEST['id'])) {
 	echo '</div><br />';
 	echo '</div>';
 	echo '<script type="text/javascript">var update_voters=true;</script>';
-
+	
 	echo '</div>'."\n"; // <div class="air-with-footer">
 		
 	echo '</div>';
