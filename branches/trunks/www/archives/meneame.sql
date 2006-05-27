@@ -41,6 +41,7 @@ CREATE TABLE `categories` (
   `category_id` int(11) NOT NULL default '0',
   `category_parent` int(11) NOT NULL default '0',
   `category_name` varchar(64) collate utf8_spanish_ci NOT NULL default '',
+  `category_feed` varchar(200) collate utf8_spanish_ci default '',
   PRIMARY KEY  (`category__auto_id`),
   UNIQUE KEY `category_lang` (`category_lang`,`category_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
@@ -64,6 +65,23 @@ CREATE TABLE `comments` (
   UNIQUE KEY `comments_randkey` (`comment_randkey`,`comment_link_id`,`comment_user_id`),
   KEY `comment_link_id_2` (`comment_link_id`,`comment_date`),
   KEY `comment_date` (`comment_date`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Table structure for table `feed_data`
+--
+
+DROP TABLE IF EXISTS `feed_data`;
+CREATE TABLE `feed_data` (
+  id int(11) NOT NULL default '0',
+  checked int(10) NOT NULL default '0',
+  link varchar(255) NOT NULL default '',
+  description longtext NOT NULL,
+  image longtext NOT NULL,
+  etag varchar(255) NOT NULL default '',
+  tags varchar(255) NOT NULL default ''
+  modified int(10) NOT NULL default '0',
+  PRIMARY KEY (id)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
