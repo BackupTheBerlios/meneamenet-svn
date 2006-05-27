@@ -52,7 +52,8 @@ if ($res) {
 	ksort($words);
 	foreach ($words as $word => $count) {
 		$size = intval($min_pts + ($count-1)*$coef);
-		echo '<span style="font-size: '.$size.'pt"><a href="index.php?search=tag:'.urlencode($word).$time_query.'">'.$word.'</a></span>&nbsp;&nbsp; ';
+		echo '<a href="/rss2.php?search='.urlencode($word).'&amp;tag=true" rel="rss"><img src="/img/common/feed-icon-16x16.png" alt="rss '.urlencode($word).'" /> </a><span style="font-size: '.$size.'pt"><a href="index.php?search='.urlencode($word).$time_query.'&amp;tag=true">'.$word.'</a></span>&nbsp;&nbsp;
+';
 	}
 
 }
