@@ -1,0 +1,9 @@
+# m h  dom mon dow   command
+*/5 * * * * wget -q -O - 'http://meneame.example.org/scripts/promote2.php?period=100' > /var/log/meneame/promote.log
+
+*/37 * * * * wget -q -O - http://meneame.example.org/scripts/discard.php > /var/log/meneame/discard.log
+
+3 0,8,13 * * * wget -q -O - http://meneame.example.org/scripts/karma3.php > /var/log/meneame/karmal.log
+
+17 5 * * * /var/www/meneame/www/scripts/affiliation.pl > /var/log/meneame/affiliation.log
+
