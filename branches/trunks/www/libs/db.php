@@ -518,6 +518,9 @@
 	}
 
 $db = new db(EZSQL_DB_USER, EZSQL_DB_PASSWORD, EZSQL_DB_NAME, EZSQL_DB_HOST);
-$db->query("SET NAMES 'utf8'");
+
+$characters = $db->get_col("show variables like 'character_sets'", 1);
+if ( in_array("utf8", split(" ", $characters[0])) )
+	$db->query("SET NAMES 'utf8'");
 
 ?>
