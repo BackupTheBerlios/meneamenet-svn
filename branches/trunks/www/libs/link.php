@@ -243,19 +243,21 @@ class Link {
 			echo '</div>';
 		}
 
-		echo '<div class="news-details">';
-		$ncomments = $this->comments();
-		if($ncomments > 0) {
-			$comments_mess = $ncomments . ' ' . _('comentarios');
-			$comment_class = "comments";
-		} else  {
-			$comments_mess = _('sin comentarios');
-			$comment_class = "comments_no";
+		if ($globals['comments']) {
+			echo '<div class="news-details">';
+			$ncomments = $this->comments();
+			if($ncomments > 0) {
+				$comments_mess = $ncomments . ' ' . _('comentarios');
+				$comment_class = "comments";
+			} else  {
+				$comments_mess = _('sin comentarios');
+				$comment_class = "comments_no";
+			}
+			if(empty($globals['link_id']))
+				echo '<a href="story.php?id='.$this->id.'" class="tool '.$comment_class.'">'.$comments_mess. '</a>';
+			else
+				echo '<span class="tool comments">'.$comments_mess. '</span>';
 		}
-		if(empty($globals['link_id']))
-			echo '<a href="story.php?id='.$this->id.'" class="tool '.$comment_class.'">'.$comments_mess. '</a>';
-		else 
-			echo '<span class="tool comments">'.$comments_mess. '</span>';
 
 		/*
 		if (!empty($this->tags)) {
