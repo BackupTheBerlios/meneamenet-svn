@@ -24,8 +24,8 @@ function do_header($title, $id='home') {
 	echo '<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="'.$dblang.'" lang="'.$dblang.'">' . "\n";
 	echo '<head>' . "\n";
 	echo '<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />' . "\n";
-	echo "<title>"._($title)." // men&eacute;ame</title>\n";
-	echo '<meta name="generator" content="meneame" />' . "\n";
+	echo "<title>"._($title)." // " . $globals['site'] . "</title>\n";
+	echo '<meta name="generator" content="'. $globals['site'] .'" />' . "\n";
 	echo '<meta name="keywords" content="'.$globals['tags'].'" />' . "\n";
 	echo '<style type="text/css" media="screen">@import "/css/es/mnm10.css";</style>' . "\n";
 	//echo '<style type="text/css" media="all">@import "./css/es/meneame.css";</style>' . "\n";
@@ -37,6 +37,8 @@ function do_header($title, $id='home') {
 
 	echo '<link rel="icon" href="/favicon.ico" type="image/x-icon" />' . "\n";
 	echo '<script src="./js/xmlhttp03.js" type="text/javascript"></script>' . "\n";
+	if ( $title == _('administración de categorías') )
+	  echo '<script src="./js/categories.js" type="text/javascript"></script>' . "\n";
 	echo '</head>' . "\n";
 	echo "<body id=\"$id\" ". $globals['body-args']. ">\n";
 	echo '<div id="container">' . "\n";
@@ -59,6 +61,7 @@ function do_header($title, $id='home') {
 		if($current_user->authenticated) {
 	  		echo '<li><a href="./login.php?op=logout&amp;return='.urlencode($_SERVER['REQUEST_URI']).'">' . _('cerrar sesión') . '</a></li>' . "\n";
   			echo '<li><a href="./user.php">' . _('perfil de') . ' ' . $current_user->user_login . '</a></li>' . "\n";
+			echo (in_array($current_user->user_level, array('admin', 'god'))) ? '<li><a href="./categories.php">' . _('categorías') . '</a></li>' . "\n" : "";
 		} else {
   			echo '<li><a href="./register.php">' . _('registrarse') . '</a></li>' . "\n";
   			echo '<li><a href="./login.php?return='.urlencode($_SERVER['REQUEST_URI']).'">' . _('login') . '</a></li>' . "\n";
