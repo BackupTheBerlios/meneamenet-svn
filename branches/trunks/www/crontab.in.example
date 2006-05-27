@@ -5,5 +5,6 @@
 
 3 0,8,13 * * * wget -q -O - http://meneame.example.org/scripts/karma3.php > /var/log/meneame/karmal.log
 
-17 5 * * * /var/www/meneame/www/scripts/affiliation.pl > /var/log/meneame/affiliation.log
+*/30 * * * * wget -q -O - http://meneame.example.org/scripts/aggregator.php > /var/log/meneame/aggregator.log
 
+17 5 * * * /var/www/meneame/www/scripts/affiliation.pl > /var/log/meneame/affiliation.log
