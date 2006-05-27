@@ -1712,3 +1712,6 @@ ul.shakeit-sub-nav {
 	padding: 10px 0 20px 0;
 }
 
+.categorylist label, .categorylist input, .categorylist p {
+       margin-left: 10px;
+}
