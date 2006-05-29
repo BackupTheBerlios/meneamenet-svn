@@ -243,8 +243,8 @@ class Link {
 			echo '</div>';
 		}
 
+		echo '<div class="news-details">';
 		if ($globals['comments']) {
-			echo '<div class="news-details">';
 			$ncomments = $this->comments();
 			if($ncomments > 0) {
 				$comments_mess = $ncomments . ' ' . _('comentarios');
