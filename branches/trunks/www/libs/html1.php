@@ -33,7 +33,9 @@ function do_header($title, $id='home') {
 	echo '<link rel="alternate" type="application/rss+xml" title="'._('publicadas').'" href="http://'.get_server_name().'/rss2.php" />'."\n";
 	echo '<link rel="alternate" type="application/rss+xml" title="'._('pendientes').'" href="http://'.get_server_name().'/rss2.php?status=queued" />'."\n";
 	echo '<link rel="alternate" type="application/rss+xml" title="'._('todas').'" href="http://'.get_server_name().'/rss2.php?status=all" />'."\n";
-	echo '<link rel="alternate" type="application/rss+xml" title="'._('comentarios').'" href="http://'.get_server_name().'/comments_rss2.php" />'."\n";
+	if ( $globals['comments'] ) {
+		echo '<link rel="alternate" type="application/rss+xml" title="'._('comentarios').'" href="http://'.get_server_name().'/comments_rss2.php" />'."\n";
+	}
 
 	echo '<link rel="icon" href="/favicon.ico" type="image/x-icon" />' . "\n";
 	echo '<script src="./js/xmlhttp03.js" type="text/javascript"></script>' . "\n";
@@ -194,15 +196,17 @@ function do_rss_box() {
 	echo '<a href="/rss2.php?status=all" rel="rss">'._('todas').'</a>';
 	echo '</li>' . "\n";
 
-	if(!empty($globals['link_id'])) {
+	if ( $globals['comments'] ) {
+		if(!empty($globals['link_id'])) {
+			echo '<li>';
+			echo '<a href="/comments_rss2.php?id='.$globals['link_id'].'" rel="rss">'._('comentarios noticia').'</a>';
+			echo '</li>' . "\n";
+		}
+
 		echo '<li>';
-		echo '<a href="/comments_rss2.php?id='.$globals['link_id'].'" rel="rss">'._('comentarios noticia').'</a>';
+		echo '<a href="/comments_rss2.php" rel="rss">'._('comentarios (todos)').'</a>';
 		echo '</li>' . "\n";
 	}
-
-	echo '<li>';
-	echo '<a href="/comments_rss2.php" rel="rss">'._('comentarios (todos)').'</a>';
-	echo '</li>' . "\n";
 
 	echo '</ul>' . "\n";
 	echo '<br style="clear: both;" />' . "\n";

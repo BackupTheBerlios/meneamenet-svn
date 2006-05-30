@@ -121,7 +121,9 @@ if ($links) {
 		// Title must not carry htmlentities
 		echo "		<title><![CDATA[".html_entity_decode($link->title)."]]></title>\n";
 		echo "		<link>".get_permalink($link->id)."</link>\n";
-		echo "		<comments>".get_permalink($link->id)."</comments>\n";
+		if ( $globals['comments'] ) {
+			echo "		<comments>".get_permalink($link->id)."</comments>\n";
+		}
 		if (!empty($link_date))
 			echo "		<pubDate>".date("r", $link->$link_date)."</pubDate>\n";
 		else echo "      <pubDate>".date("r", time())."</pubDate>\n";
@@ -143,7 +145,9 @@ if ($links) {
 		//echo '<wfw:comments>'.$link->comments().'</wfw:comments>';
 		// echo "		<trackback:ping>".get_trackback($link->id)."</trackback:ping>\n";  // no standard
 		//echo "<content:encoded><![CDATA[ ]]></content:encoded>\n";
-		echo '<wfw:commentRss>http://'.get_server_name().'/comments_rss2.php?id='.$link->id.'</wfw:commentRss>';
+		if ( $globals['comments'] ) {
+			echo '<wfw:commentRss>http://'.get_server_name().'/comments_rss2.php?id='.$link->id.'</wfw:commentRss>';
+		}
 		echo "	</item>\n\n";
 	}
 }
