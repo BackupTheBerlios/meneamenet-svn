@@ -7,7 +7,7 @@
  * Used to aggregate syndicated content (RSS and RDF).
  */
 
-include('/var/www/meneame/www/config.php');
+include('../config.php');
 
 aggregator_main();
 
