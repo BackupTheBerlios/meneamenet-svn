@@ -94,7 +94,7 @@ function show_category_form() {
 function show_categories() {
 	global $db, $dblang;
 
-	$categories = $db->get_results("SELECT category_id, category_parent, category_name, category_feed FROM categories WHERE category_lang='$dblang' ORDER BY category_parent ASC, category_id ASC");
+	$categories = $db->get_results("SELECT category_id, category_parent, category_name, category_feed, tags FROM categories LEFT JOIN feed_data ON category_id = id WHERE category_lang='$dblang' ORDER BY category_parent ASC, category_id ASC");
 
 	foreach ($categories as $category) {
 		if (isset($tree[$category->category_parent])) {
@@ -105,6 +105,7 @@ function show_categories() {
 		$category_data[$category->category_id]->category_parent = $category->category_parent;
 		$category_data[$category->category_id]->category_name = $category->category_name;
 		$category_data[$category->category_id]->category_feed = $category->category_feed;
+		$category_data[$category->category_id]->tags = $category->tags;
 	}
 
 	$elems = split(",", $tree[0]);
@@ -119,7 +120,7 @@ function recursive($elems, $tree, $data, $level) {
 			for ($i=$level; $i>0; $i--)
 				echo '<blockquote>';
 
-			print_category($item, $data[$item]->category_parent, $data[$item]->category_name, $data[$item]->category_feed);
+			print_category($item, $data[$item]->category_parent, $data[$item]->category_name, $data[$item]->category_feed, $data[$item]->tags);
 
 			for ($i=$level; $i>0; $i--)
 				echo '</blockquote>';
@@ -128,7 +129,7 @@ function recursive($elems, $tree, $data, $level) {
 			for ($i=$level; $i>0; $i--)
 				echo '<blockquote>';
 
-			print_category($item, $data[$item]->category_parent, $data[$item]->category_name, $data[$item]->category_feed);
+			print_category($item, $data[$item]->category_parent, $data[$item]->category_name, $data[$item]->category_feed, $data[$item]->tags);
 
 			for ($i=$level; $i>0; $i--)
 				echo '</blockquote>';
@@ -136,7 +137,7 @@ function recursive($elems, $tree, $data, $level) {
 	}
 }
 
-function print_category ($id, $parent, $name, $feed) {
+function print_category ($id, $parent, $name, $feed, $tags) {
 	echo '<p class="l-top" id="l-top-edit[' . $id . ']">['. $id . 
 		'] <label for="edit[' . $id . ']" accesskey="' . $id . 
 		'" id="label1-edit[' . $id .']">' . _($name) .'</label> ';
@@ -151,6 +152,9 @@ function print_category ($id, $parent, $name, $feed) {
 	echo '<input type="hidden"  name="feed-edit[' . $id . ']" id="feed-edit[' 
 		. $id . ']" value="' . $feed . '" />';
 
+	echo '<input type="hidden"  name="tags-edit[' . $id . ']" id="tags-edit[' 
+		. $id . ']" value="' . $tags . '" />';
+		
 	echo '<input type="submit" name="delete[' . $id . ']" id="delete[' . $id .
 		 ']" tabindex="1" value="' . _('eliminar') . ' " />' . "\n";
 }
@@ -212,7 +216,7 @@ function save_categories($category) {
 	$ncat=0;
 	foreach ($category->id as $key) {
 		$db->query("update categories set category_name=\"" . $category->name[$ncat] . "\", category_parent=\"" . $category->parent[$ncat] . "\", category_feed=\"" . $category->feed[$ncat] . "\" where category_id=\"$key\" and category_lang=\"$dblang\"");
-		$db->query("update feed_data set tags='" . $category->tags[$ncat] . "\" where id=\"$key\"");
+		$db->query("update feed_data set tags=\"" . $category->tags[$ncat] . "\" where id=\"$key\"");
 		$ncat++;
 	}
 }

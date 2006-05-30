@@ -13,7 +13,8 @@ function edit_category(obj) {
 	'Ejemplo: <em>web, programación, softwarelibre</em></span>--><br />' + 
 	'<label for="new_tags-' + obj.id + '">etiquetas por defecto:</label><input ' + 
 	'type="text" id="new_tags-' + obj.id + '" name="new_tags-' + obj.id +
-	'" tabindex="1" size="25" /></p>';
+	'" tabindex="1" size="25" value="' + document.getElementById('tags-' + 
+	obj.id).value +'" /></p>';
 
 	// Para ocultar submit principal y sacar uno único por cada campo.
 	// Habilitar esta opción anularia la posibilidad de actualización
