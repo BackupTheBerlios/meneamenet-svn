@@ -62,8 +62,12 @@ if($md5 !== $_REQUEST['md5']){
 
 $votes_freq = $db->get_var("select count(*) from votes where vote_type='links' and vote_user_id=$current_user->user_id and vote_date > from_unixtime(unix_timestamp(now())-30) and vote_ip = '".$globals['user_ip']."'");
 
-if ($current_user->user_id > 0) $freq = 3;
-else $freq = 2;
+if ( $globals['interface'] == "monouser" ) {
+	$freq = 1000;
+else {
+	if ($current_user->user_id > 0) $freq = 3;
+	else $freq = 2;
+}
 
 if ($votes_freq > $freq) {
 	warn(_('¡tranquilo cowboy!'));
