@@ -79,7 +79,7 @@ CREATE TABLE `feed_data` (
   description longtext NOT NULL,
   image longtext NOT NULL,
   etag varchar(255) NOT NULL default '',
-  tags varchar(255) NOT NULL default '',
+  tags varchar(255) NOT NULL default ''
   modified int(10) NOT NULL default '0',
   PRIMARY KEY (id)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
