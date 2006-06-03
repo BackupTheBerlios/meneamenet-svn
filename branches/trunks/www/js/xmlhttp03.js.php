@@ -137,7 +137,7 @@ function ultima_noticia(htmlid) {
 				tags = link_tags.split(", ");
 				html = '<div class="news-body"><ul class="news-shakeit"><li class="mnm-queued" id="main' + link_id + '"><a id="mnms-' + link_id + '" href="story.php?id=' + link_id + '">0 meneos</a></li>';
 				html += '<li class="menealo" id="mnmlink-' + link_id + '"><a href="javascript:menealo(' + userid + ',' + link_id + ',' + link_id + ',\'' + randkey + '\')" title="vota si te agrada">menéalo</a></li></ul>';
-				html += '<h3 id="title' + link_id + '"><a href="http://bulma.net/body.phtml?nIdNoticia=2299">' + link_title + '</a></h3><div class="news-submitted"><strong>' + link_url + '</strong><br>';
+				html += '<h3 id="title' + link_id + '"><a href="' + link_url + '">' + link_title + '</a></h3><div class="news-submitted"><strong>' + link_url + '</strong><br>';
 				html += 'enviado hace </div><div class="news-body-text">' + link_content + '</div><div class="news-tags"><strong><a href="cloud.php" title="nube">etiquetas</a></strong>: ';
 				for (i=0; i<tags.length; i++) {
 					if ( i != 0 )
