@@ -29,7 +29,7 @@ if($search) {
 	do_navbar(_('noticias en la cola'));
 	echo '<div id="contents">'."\n";
 	echo '<h2>'._('noticias pendientes').'</h2>'."\n";
-	$order_by = " ORDER BY link_date DESC ";
+	$order_by = " ORDER BY link_id DESC ";
 }
 
 
@@ -91,11 +91,13 @@ $link = new Link;
 $rows = $db->get_var("SELECT count(*) $from_where $order_by");
 $links = $db->get_col("SELECT link_id $from_where $order_by LIMIT $offset,$page_size");
 if ($links) {
+	echo '<span class="hidden" id="start">' . $links[0] . '</span>';
 	foreach($links as $link_id) {
 		$link->id=$link_id;
 		$link->read();
 		$link->print_summary();
 	}
+	echo '<span class="hidden" id="end">' . $link_id . '</span>';
 }
 do_pages($rows, $page_size);
 echo '</div>'."\n";
