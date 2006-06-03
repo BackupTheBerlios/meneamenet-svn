@@ -1,3 +1,7 @@
+<?php
+includeonce('../config.php');
+
+?>
 function myXMLHttpRequest ()
 {
 	var xmlhttplocal;
@@ -24,6 +28,10 @@ function myXMLHttpRequest ()
 }
 
 var mnmxmlhttp = Array ();
+<?php if ( $globals['interface'] == "monouser" ) { ?>
+var mnmxmlhttp2 = Array ();
+var mnmxmlhttp3 = Array ();
+<?php } ?>
 var mnmString = Array ();
 var mnmPrevColor = Array ();
 var responsestring = Array ();
@@ -77,6 +85,9 @@ function menealo (user, id, htmlid, md5)
 							updateVoters(id);
 						}
 					}
+					<?php if ( $globals['interface'] == "monouser" ) { ?>
+					apila_noticias(htmlid, id);
+					<?php } ?>
 				}
 			}
 		} else {
@@ -84,6 +95,70 @@ function menealo (user, id, htmlid, md5)
 		}
 	}
 }
+
+<?php if ( $globals['interface'] == "monouser" ) { ?>
+
+function apila_noticias(htmlid, id) {
+	mnmxmlhttp2[htmlid] = new myXMLHttpRequest ();
+	if (mnmxmlhttp2[htmlid]) {
+		promote = "scripts/promote2.php";
+		mnmxmlhttp2[htmlid].open ("GET", promote, true);
+		mnmxmlhttp2[htmlid].send (null);
+		mnmxmlhttp2[htmlid].onreadystatechange = function () {
+			if (mnmxmlhttp2[htmlid].readyState == 4) {
+				count = 1;
+				prev_id = id;
+				while (parseInt(id) - count >= parseInt(document.getElementById('end').innerHTML)) {
+					while (!document.getElementById('news-' + (parseInt(id) - count))) {
+						count++;
+					}
+					buffer = document.getElementById('news-' + (parseInt(id) - count)).innerHTML;
+					document.getElementById('news-' + prev_id).innerHTML = buffer;
+					document.getElementById('news-' + prev_id).id = 'news-' + (parseInt(id) - count);
+					prev_id = parseInt(id) - count;
+					count++;
+				}
+			}
+		}
+		ultima_noticia(htmlid);
+	}
+}
+
+function ultima_noticia(htmlid) {
+	mnmxmlhttp3[htmlid] = new myXMLHttpRequest ();
+	if (mnmxmlhttp3[htmlid]) {
+		url = "/libs/next.php?id=" + document.getElementById('end').innerHTML;
+		mnmxmlhttp3[htmlid].open ("GET", url, true);
+		mnmxmlhttp3[htmlid].send (null);
+		mnmxmlhttp3[htmlid].onreadystatechange = function () {
+			if (mnmxmlhttp3[htmlid].readyState == 4) {
+				eval (mnmxmlhttp3[htmlid].responseText);
+				window.alert(link_title);
+				tags = link_tags.split(", ");
+				html = '<div class="news-body"><ul class="news-shakeit"><li class="mnm-queued" id="main' + link_id + '"><a id="mnms-' + link_id + '" href="story.php?id=' + link_id + '">0 meneos</a></li>';
+				html += '<li class="menealo" id="mnmlink-' + link_id + '"><a href="javascript:menealo(' + userid + ',' + link_id + ',' + link_id + ',\'' + randkey + '\')" title="vota si te agrada">menéalo</a></li></ul>';
+				html += '<h3 id="title' + link_id + '"><a href="http://bulma.net/body.phtml?nIdNoticia=2299">' + link_title + '</a></h3><div class="news-submitted"><strong>' + link_url + '</strong><br>';
+				html += 'enviado hace </div><div class="news-body-text">' + link_content + '</div><div class="news-tags"><strong><a href="cloud.php" title="nube">etiquetas</a></strong>: ';
+				for (i=0; i<tags.length; i++) {
+					if ( i != 0 )
+						html += ', ';
+					html += '<a href="index.php?search=tag:' + tags[i] + '">' + tags[i] + '</a>';
+				}
+				html += '</div><div class="news-details"><span class="tool">categoría: <a href="./index.php?category=' + category_id + '" title="categoría">' + link_category + '</a></span> <span class="tool"><a href="editlink.php?id=' + link_id + '">editar</a></span> ';
+				html += '<form class="tool" action="" id="problem-' + link_id + '"><a href="javascript:report_problem(document.getElementById(\'problem-' + link_id + '\'), ' + userid + ', ' + link_id + ', \'' + randkey + '\')">Descartar noticia</a><input name="ratings" value="-1" type="hidden"></form>';
+				html += '</div></div>';
+				prev_id = document.getElementById('end').innerHTML;
+				document.getElementById('news-' + prev_id).innerHTML = html;
+				document.getElementById('news-' + prev_id).id = 'news-' + link_id;
+				window.alert(document.getElementById('end').innerHTML);
+				document.getElementById('end').innerHTML = link_id;
+				window.alert(document.getElementById('end').innerHTML);
+			}
+		}
+	}
+}
+
+<?php } ?>
 
 function disable_problem_form(id) {
 	target = document.getElementById ('problem-' + id);
@@ -162,7 +237,7 @@ function checkfield (type, form, field)
 function report_problem(frm, user, id, md5 /*id, code*/) {
 	if (frm.ratings.value == 0)
 		return;
-	if (! confirm("¿Seguro que desea reportarlo?") ) {
+	if (! confirm("¿Seguro que desea continuar?") ) {
 		frm.ratings.selectedIndex=0;
 		return false;
 	}
