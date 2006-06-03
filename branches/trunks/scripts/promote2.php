@@ -41,8 +41,15 @@ echo "Past karma: $past_karma\n";
 while ($continue) {
 	$continue = false;
 //////////////
-	$min_karma = round(max($past_karma * $d, 20));
-	$min_votes = 5;
+
+	if ( $globals['interface'] == "digg" ) {
+		$min_karma = round(max($past_karma * $d, 20));
+		$min_votes = 5;
+	} elseif ($globals['interface'] == "monouser" ) {
+	        $min_karma = 0;
+	        $min_votes = 1;
+	}
+
 /////////////
 	
 	echo "Current MIN karma: $min_karma    MIN votes: $min_votes\n";

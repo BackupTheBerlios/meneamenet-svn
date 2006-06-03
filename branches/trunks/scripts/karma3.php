@@ -79,7 +79,8 @@ foreach($users as $dbuser) {
 	} else {
 		$no_calculated++;
 		$karma = min($karma_base, $user->karma);
-		$user->level = 'normal';
+		if ( $user->level != 'god' )
+			$user->level = 'normal';
 	}
 
 	if ($user->karma == $karma) {
