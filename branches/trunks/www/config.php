@@ -18,6 +18,8 @@ $external_ads = true;
 $globals['comments'] = true;
 $globals['site'] = "Mymeneame";
 //$globals['external_ads'] = false;
+// interface "monouser" or "digg"
+$globals['interface'] = "monouser";
 $globals['tags'] = 'tecnología, internet, cultura, software libre, linux, open source, bitácoras, blogs, ciencia';
 $globals['time_enabled_votes'] = 864000; // 10 days
 $globals['mysql_persistent'] = true;
