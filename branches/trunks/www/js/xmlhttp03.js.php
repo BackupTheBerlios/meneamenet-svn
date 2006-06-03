@@ -1,6 +1,7 @@
 <?php
-includeonce('../config.php');
-
+include('../config.php');
+header('Content-Type: text/javascript; charset=UTF-8');
+header('Cache-Control: max-age=60');
 ?>
 function myXMLHttpRequest ()
 {
@@ -133,7 +134,6 @@ function ultima_noticia(htmlid) {
 		mnmxmlhttp3[htmlid].onreadystatechange = function () {
 			if (mnmxmlhttp3[htmlid].readyState == 4) {
 				eval (mnmxmlhttp3[htmlid].responseText);
-				window.alert(link_title);
 				tags = link_tags.split(", ");
 				html = '<div class="news-body"><ul class="news-shakeit"><li class="mnm-queued" id="main' + link_id + '"><a id="mnms-' + link_id + '" href="story.php?id=' + link_id + '">0 meneos</a></li>';
 				html += '<li class="menealo" id="mnmlink-' + link_id + '"><a href="javascript:menealo(' + userid + ',' + link_id + ',' + link_id + ',\'' + randkey + '\')" title="vota si te agrada">menéalo</a></li></ul>';
@@ -150,9 +150,7 @@ function ultima_noticia(htmlid) {
 				prev_id = document.getElementById('end').innerHTML;
 				document.getElementById('news-' + prev_id).innerHTML = html;
 				document.getElementById('news-' + prev_id).id = 'news-' + link_id;
-				window.alert(document.getElementById('end').innerHTML);
 				document.getElementById('end').innerHTML = link_id;
-				window.alert(document.getElementById('end').innerHTML);
 			}
 		}
 	}
