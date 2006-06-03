@@ -46,6 +46,13 @@ if($md5 !== $_REQUEST['md5']){
 	error(_('Clave de control incorrecta'));
 }
 
+if ($globals['interface'] == "monouser" ) {
+	if ( $current_user->user_level == 'god' ) {
+		$db->query("update links set link_status='discard' where link_id = " . $link->id);
+		die;
+	}
+}
+
 $vote = new Vote;
 $vote->link=$link->id;
 $vote->type='links';
@@ -56,8 +63,12 @@ if($vote->exists()) {
 }
 
 $votes_freq = $db->get_var("select count(*) from votes where vote_type='links' and vote_user_id=$current_user->user_id and vote_date > from_unixtime(unix_timestamp(now())-30) and vote_ip = '".$globals['user_ip']."'"); 
-if ($current_user->user_id > 0) $freq = 2;
-else $freq = 2;
+if ( $globals['interface'] == "digg" ) {
+	if ($current_user->user_id > 0) $freq = 2;
+	else $freq = 2;
+} elseif ($globals['interface'] == "monouser" ) {
+	$freq = 1000;
+}
 
 if ($votes_freq > $freq) {
 	error(_('¡tranquilo cowboy!'));
