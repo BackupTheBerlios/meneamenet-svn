@@ -211,7 +211,7 @@ class Link {
 
 		echo '<div class="news-summary" id="news-'.$this->id.'">';
 		echo '<div class="news-body">';
-		if ($type != 'preview' && !empty($this->title) && !empty($this->content)) {
+		if ($type != 'preview' && !empty($this->title)) {
 			$this->print_shake_box($votes_enabled);
 		}
 		echo '<h3 id="title'.$this->id.'">';
@@ -221,12 +221,18 @@ class Link {
 		if ($type != 'short')
 			echo '<a href="user.php?login='.$this->username.'" title="'.$this->username.'"><img src="'.get_gravatar_url($this->email, 25).'" width="25" height="25" alt="icon gravatar.com" /></a>';
 		echo '<strong>'.htmlentities(preg_replace('/^http:\/\//', '', txt_shorter($this->url))).'</strong>'."<br />\n";
-		echo _('enviado por').' <a href="user.php?login='.$this->username.'&amp;view=history"><strong>'.$this->username.'</strong></a> '._('hace').txt_time_diff($this->date);
+		if ( $globals['interface'] == "monouser" )
+			echo _('enviado hace').txt_time_diff($this->date);
+		else
+			echo _('enviado por').' <a href="user.php?login='.$this->username.'&amp;view=history"><strong>'.$this->username.'</strong></a> '._('hace').txt_time_diff($this->date);
 		if($this->status == 'published')
 			echo ', '  ._('publicado hace').txt_time_diff($this->published_date);
 		echo "</div>\n";
 		if($type=='full' || $type=='preview') {
-			echo '<div class="news-body-text">'.text_to_html($this->content).'</div>';
+			if ( $globals['interface'] == "monouser" ) 
+				echo '<div class="news-body-text">'.trim($this->content).'</div>';
+			else
+				echo '<div class="news-body-text">'.text_to_html($this->content).'</div>';
 		}
 		if (!empty($this->tags)) {
 			echo '<div class="news-tags">';
@@ -283,6 +289,8 @@ class Link {
 
 		if($current_user->user_id > 0 && $this->status!='published' && $this->votes > 0 && $type != 'preview' &&
 				$current_user->user_karma > 5 && $this->votes_enabled /*&& $this->author != $current_user->user_id*/) {
+			$this->print_problem_form();
+		} elseif ($current_user->user_level == 'god') {
 			$this->print_problem_form();
 		}
 
@@ -344,20 +352,29 @@ class Link {
 		}
 		$pvalue = -1;
 		//echo '<span class="tool-right">';
-		echo '<form class="tool" action="" id="problem-'.$this->id.'">';
-		echo '<select '.$status.' name="ratings"  onchange="';
-		echo 'report_problem(this.form,'."$current_user->user_id, $this->id, "."'".md5($site_key.$current_user->user_id.$this->randkey.$globals['user_ip'])."'".')';
-		echo '">';
-		echo '<option value="0" selected="selected">¿problema?</option>';
-		echo '<option value="'.$pvalue.'">'._('irrelevante').'</option>'; $pvalue--;
-		echo '<option value="'.$pvalue.'">'._('antigua').'</option>'; $pvalue--;
-		echo '<option value="'.$pvalue.'">'._('spam').'</option>'; $pvalue--;
-		echo '<option value="'.$pvalue.'">'._('duplicada').'</option>'; $pvalue--;
-		echo '<option value="'.$pvalue.'">'._('provocación').'</option>'; $pvalue--;
-		echo '<option value="'.$pvalue.'">'._('errónea').'</option>'; $pvalue--;
-		echo '</select>';
-//		echo '<input type="hidden" name="return" value="" disabled />';
-		echo '</form>';
+		if ( $current_user->user_level == 'god' && $globals['interface'] == "monouser" ) {
+			echo '<form class="tool" action="" id="problem-'.$this->id.'">';
+			echo '<a href="javascript:';
+			echo 'report_problem(document.getElementById(\'problem-'.$this->id.'\'),'."$current_user->user_id, $this->id, "."'".md5($site_key.$current_user->user_id.$this->randkey.$globals['user_ip'])."'".')';
+			echo '">' . _('Descartar noticia') . '</a>';
+			echo '<input type="hidden" name="ratings" value="-1" />';
+			echo '</form>';
+		} else {
+			echo '<form class="tool" action="" id="problem-'.$this->id.'">';
+			echo '<select '.$status.' name="ratings"  onchange="';
+			echo 'report_problem(this.form,'."$current_user->user_id, $this->id, "."'".md5($site_key.$current_user->user_id.$this->randkey.$globals['user_ip'])."'".')';
+			echo '">';
+			echo '<option value="0" selected="selected">¿problema?</option>';
+			echo '<option value="'.$pvalue.'">'._('irrelevante').'</option>'; $pvalue--;
+			echo '<option value="'.$pvalue.'">'._('antigua').'</option>'; $pvalue--;
+			echo '<option value="'.$pvalue.'">'._('spam').'</option>'; $pvalue--;
+			echo '<option value="'.$pvalue.'">'._('duplicada').'</option>'; $pvalue--;
+			echo '<option value="'.$pvalue.'">'._('provocación').'</option>'; $pvalue--;
+			echo '<option value="'.$pvalue.'">'._('errónea').'</option>'; $pvalue--;
+			echo '</select>';
+//			echo '<input type="hidden" name="return" value="" disabled />';
+			echo '</form>';
+		}
 	}
 
 	function vote_exists($user) {
