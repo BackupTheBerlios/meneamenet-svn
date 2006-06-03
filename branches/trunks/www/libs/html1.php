@@ -33,12 +33,11 @@ function do_header($title, $id='home') {
 	echo '<link rel="alternate" type="application/rss+xml" title="'._('publicadas').'" href="http://'.get_server_name().'/rss2.php" />'."\n";
 	echo '<link rel="alternate" type="application/rss+xml" title="'._('pendientes').'" href="http://'.get_server_name().'/rss2.php?status=queued" />'."\n";
 	echo '<link rel="alternate" type="application/rss+xml" title="'._('todas').'" href="http://'.get_server_name().'/rss2.php?status=all" />'."\n";
-	if ( $globals['comments'] ) {
+	if ( $globals['comments'] )
 		echo '<link rel="alternate" type="application/rss+xml" title="'._('comentarios').'" href="http://'.get_server_name().'/comments_rss2.php" />'."\n";
-	}
 
 	echo '<link rel="icon" href="/favicon.ico" type="image/x-icon" />' . "\n";
-	echo '<script src="./js/xmlhttp03.js" type="text/javascript"></script>' . "\n";
+	echo '<script src="./js/xmlhttp03.js.php" type="text/javascript"></script>' . "\n";
 	if ( $title == _('administración de categorías') )
 	  echo '<script src="./js/categories.js" type="text/javascript"></script>' . "\n";
 	echo '</head>' . "\n";
