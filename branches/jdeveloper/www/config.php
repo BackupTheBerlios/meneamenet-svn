@@ -6,8 +6,8 @@
 // 		http://www.affero.org/oagpl.html
 // AFFERO GENERAL PUBLIC LICENSE is also included in the file called "COPYING".
 
-define("mnmpath", dirname(__FILE__));
-define("mnminclude", dirname(__FILE__).'/libs/');
+define("mnmpath", '/var/www/meneame/branches/jdeveloper/www');
+define("mnminclude", '/var/www/meneame/branches/jdeveloper/www/libs/');
 
 // Better to do local modification in hostname-local.php
 $server_name	= $_SERVER['SERVER_NAME'];

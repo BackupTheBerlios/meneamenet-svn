@@ -202,14 +202,14 @@ echo '<div class="sneaker-who">&nbsp;<strong>'._('quién/qué').'</strong></div>
 echo '<div class="sneaker-status"><strong>'._('estado').'</strong></div>';
 echo "</div>\n";
 
-
-for ($i=0; $i<$max_items;$i++) {
+echo '<div id="rows">';
+for ($i=0; $i<$initial_items_load;$i++) {
 	echo '<div id="sneaker-'.$i.'" class="sneaker-item">&nbsp;';
 	echo "</div>\n";
 
 
 }
-
+echo '</div>';
 echo '</div>';
 //echo "</div>\n"; // air-with-footer
 ?>
