@@ -7,6 +7,9 @@ header('Cache-Control: max-age=3600');
 var items = Array();
 var new_items = 0;
 var max_items = <? echo $max_items; ?>;
+var initial_items_load=<? echo $initial_items_load; ?>;
+var num_items_showen=0;
+var num_rows_created=<? echo $initial_items_load; ?>;
 var request_timer;
 var min_update = 20000;
 var next_update = 5000;
@@ -36,7 +39,7 @@ function start() {
 		check_control('published');
 		check_control('chat');
 	}
-	for (i=0; i<max_items; i++) {
+	for (i=0; i<initial_items_load; i++) {
 		items[i] = document.getElementById('sneaker-'+i);
 	}
 	do_play();
@@ -109,13 +112,36 @@ function received_data() {
 		if(target) target.innerHTML = ccnt;
 		new_items= new_data.length;
 		if(new_items > 0) {
+			//if we need more rows than we have created, than whe create them
+			//if num_items_showen is 0 then we just display as maximum inital_items_load items
+			if(new_items+num_items_showen>num_rows_created && (new_items+num_items_showen)<=max_items && num_items_showen>0){
+				
+				num_new_rows=new_items+num_items_showen-num_rows_created;
+				str='';
+				for(i=num_rows_created;i<(num_rows_created+num_new_rows);i++)
+					str=str+'<div id="sneaker-' +i+ '" class="sneaker-item">&nbsp;';
+				
+				rows=document.getElementById('rows');
+				
+				rows.innerHTML=rows.innerHTML+str;
+				
+				for(i=0;i<=num_rows_created;i++)
+					items[i] = document.getElementById('sneaker-'+i);
+				
+				num_rows_created=num_rows_created+num_new_rows;
+			}
+			
 			if (do_animation) clearInterval(animation_timer);
 			next_update = Math.round(0.5*next_update + 0.5*min_update/(new_items*2));
 			shift_items(new_items);
-			for (i=0; i<new_items && i<max_items; i++) {
+			for (i=0; i<new_items && i<num_rows_created; i++) {
 				items[i].innerHTML = to_html(new_data[i]);
 				if (do_animation) set_initial_color(i);
 			}
+			
+			//update the num_items_showen counter
+			num_items_showen=num_items_showen+new_items;
+
 			if (do_animation) {
 				animation_timer = setInterval('animate_background()', 100);
 				animating = true;
@@ -137,14 +163,14 @@ function received_data() {
 
 function shift_items(n) {
 	//for (i=n;i<max_items;i++) {
-	for (i=max_items-1;i>=n;i--) {
+	for (i=num_rows_created-1;i>=n;i--) {
 		items[i].innerHTML = items[i-n].innerHTML;
 		//items.shift();
 	}
 }
 
 function clear_items() {
-	for (i=0;i<max_items;i++) {
+	for (i=0;i<num_rows_created;i++) {
 		items[i].innerHTML = '&nbsp;';
 	}
 }
