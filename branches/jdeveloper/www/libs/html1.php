@@ -35,7 +35,7 @@ function do_header($title, $id='home') {
 	echo '<head>' . "\n";
 	echo '<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />' . "\n";
 	echo "<title>"._($title)." // men&eacute;ame</title>\n";
-	echo '<meta name="generator" content="meneame" />' . "\n";
+	echo '<meta name="generator" content="Bluefish 1.0.4"/>' . "\n";
 	echo '<meta name="keywords" content="'.$globals['tags'].'" />' . "\n";
 	echo '<link rel="microsummary" type="application/x.microsummary+xml" href="'.$globals['base_url'].'microsummary.xml" />' . "\n";
 	echo '<style type="text/css" media="screen">@import "'.$globals['base_url'].'css/es/mnm15.css";</style>' . "\n";
@@ -329,6 +329,7 @@ function do_categories($what_cat_type, $what_cat_id) {
 	echo '</a></li>' . "\n";
 
 	// draw categories
+	if($categories){
 	foreach ($categories as $category) {
 
 		if($category->category_id == $what_cat_id) {
@@ -347,10 +348,9 @@ function do_categories($what_cat_type, $what_cat_id) {
 		echo "</a></li>\n";
 
 		}
-
+	}
 	echo '</ul>';
 	echo '<br style="clear: both;" />' . "\n";
 	echo '</div></li><!--html1:do_categories-->' . "\n";
-
 }
 ?>
